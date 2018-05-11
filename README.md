@@ -58,20 +58,6 @@ tags:
 ---
 ```
 
-The resulting document would then be the body:
-
-```
-# Lorem Ipsum
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt odio
-arcu, a volutpat felis ultricies quis. Nam eros arcu, pretium vitae justo sed,
-condimentum feugiat mi. Cras rhoncus aliquam aliquam. Etiam non quam id metus
-interdum efficitur. Nulla facilisi. Sed suscipit purus ipsum, eu tempus enim
-mattis vel. In nec finibus dui, sit amet hendrerit nulla. Ut quis semper
-tellus. Etiam auctor ultricies justo, nec euismod arcu consectetur eget.
-Curabitur auctor dignissim turpis vel vehicula. Sed vel magna laoreet quam
-varius interdum. Mauris quis orci nunc. Nulla varius vel nibh vel aliquam.
-```
-
 There will also be a revision system available so the history of edits to a
 document will be easily accessible. For now I believe the revision history will
 be accessed by appending `/revision` to a path.
