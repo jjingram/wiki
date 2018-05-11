@@ -16,9 +16,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	port := os.Getenv("PORT")
-
 	if port == "" {
 		log.Fatal("$PORT must be set")
+	}
+
+	databaseUrl := os.Getenv("DATABASE_URL")
+	if databaseUrl == "" {
+		log.Fatal("$DATABASE_URL must be set")
 	}
 
 	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
