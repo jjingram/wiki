@@ -31,7 +31,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", Handler{db: db})
+	http.Handle("/", &Handler{db: db})
 
+	log.Println("Listening on :" + port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
