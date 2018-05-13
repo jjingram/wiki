@@ -2,23 +2,12 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"net/http"
 	"os"
 
 	_ "github.com/lib/pq"
 )
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	path := r.URL.Path[1:]
-	query := r.URL.RawQuery
-	if path != "" {
-		fmt.Fprintf(w, "%s", path)
-	} else {
-		fmt.Fprintf(w, "%s", query)
-	}
-}
 
 func main() {
 	port := os.Getenv("PORT")
@@ -42,7 +31,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", Handler{db: db})
 
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
