@@ -32,7 +32,7 @@ func (h *Handler) doGet(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.RawQuery
 
 	if path != "" {
-		page, err := h.dal.GetPageByTitle(path)
+		page, err := h.dal.GetPage(path)
 		if err == sql.ErrNoRows {
 			w.WriteHeader(http.StatusNotFound)
 			fmt.Fprint(w, http.StatusText(http.StatusNotFound))
@@ -44,9 +44,9 @@ func (h *Handler) doGet(w http.ResponseWriter, r *http.Request) {
 
 		unsafe := blackfriday.Run(page.Body)
 		html := bluemonday.UGCPolicy().SanitizeBytes(unsafe)
-		fmt.Fprintf(w, string(html))
+		fmt.Fprint(w, string(html))
 	} else if query != "" {
-		fmt.Fprintf(w, "%s", query)
+		fmt.Fprint(w, query)
 		return
 	}
 }
@@ -58,7 +58,7 @@ func (h *Handler) doPost(w http.ResponseWriter, r *http.Request) {
 	input, err := ioutil.ReadAll(body)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		fmt.Fprintf(w, "%s", http.StatusText(http.StatusInternalServerError))
+		fmt.Fprintf(w, http.StatusText(http.StatusInternalServerError))
 		return
 	}
 	fmt.Fprint(w, input)
