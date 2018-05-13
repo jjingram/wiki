@@ -1,6 +1,7 @@
 create table page (
     id serial,
-    title text unique,
+    uri text unique,
+    title text,
     tags text[],
     body text
 );
