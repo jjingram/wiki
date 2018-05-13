@@ -16,14 +16,14 @@ text; selecting text is powerful since it pops up a list of related articles.
 To access a page one simply uses the title seperated by hyphens:
 
 ```
-/the-title-of-my-page
+/title-of-my-page
 ```
 
 Then it's obvious that page titles must be unique.
 
 Pages will be written in markdown but submitted with the following format:
 
-* A YAML preamble:
+* A preamble:
     * A `title` will be provided that is unique.
     * At least one tag categorising the document is required, additional tags can be provided.
 * The rest of the document should be in Markdown.
@@ -31,10 +31,10 @@ Pages will be written in markdown but submitted with the following format:
 So for example if someone were to `POST` a new article:
 
 ```
----
-title: "Lorem Ipsum",
-tags: ["lorem ipsum", "copy"]
----
+title: Lorem Ipsum
+tag: lorem ipsum
+tag: copy
+
 # Lorem Ipsum
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt odio
 arcu, a volutpat felis ultricies quis. Nam eros arcu, pretium vitae justo sed,
@@ -44,18 +44,6 @@ mattis vel. In nec finibus dui, sit amet hendrerit nulla. Ut quis semper
 tellus. Etiam auctor ultricies justo, nec euismod arcu consectetur eget.
 Curabitur auctor dignissim turpis vel vehicula. Sed vel magna laoreet quam
 varius interdum. Mauris quis orci nunc. Nulla varius vel nibh vel aliquam.
-```
-
-or because we're dealing with YAML one could have the preamble look like the
-following:
-
-```
----
-title: "Lorem Ipsum"
-tags:
-    - "lorem ipsum"
-    - "copy"
----
 ```
 
 There will also be a revision system available so the history of edits to a

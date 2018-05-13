@@ -3,6 +3,36 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "z8BTdcYSPEUz3OK4ljGOz7TYrvg=",
+			"path": "github.com/golang-migrate/migrate",
+			"revision": "fb3d809e81c30bd7130a4bd11b5bcd5b415ab3a8",
+			"revisionTime": "2018-05-12T22:25:19Z"
+		},
+		{
+			"checksumSHA1": "ISRVbBl9aHWDQfCDJ+nJf9CDe6M=",
+			"path": "github.com/golang-migrate/migrate/database",
+			"revision": "fb3d809e81c30bd7130a4bd11b5bcd5b415ab3a8",
+			"revisionTime": "2018-05-12T22:25:19Z"
+		},
+		{
+			"checksumSHA1": "Y2IfMHXxeyJS0ynvhRUxoN9mT34=",
+			"path": "github.com/golang-migrate/migrate/database/postgres",
+			"revision": "fb3d809e81c30bd7130a4bd11b5bcd5b415ab3a8",
+			"revisionTime": "2018-05-12T22:25:19Z"
+		},
+		{
+			"checksumSHA1": "bU1rfw/7W2qjZq0JtXLNJJoGMZI=",
+			"path": "github.com/golang-migrate/migrate/source",
+			"revision": "fb3d809e81c30bd7130a4bd11b5bcd5b415ab3a8",
+			"revisionTime": "2018-05-12T22:25:19Z"
+		},
+		{
+			"checksumSHA1": "ziXGsFtat/eNnPJduYgm2JhsHfQ=",
+			"path": "github.com/golang-migrate/migrate/source/file",
+			"revision": "fb3d809e81c30bd7130a4bd11b5bcd5b415ab3a8",
+			"revisionTime": "2018-05-12T22:25:19Z"
+		},
+		{
 			"checksumSHA1": "F7vsuKOVSMnFSi90odRxfhBEBeA=",
 			"path": "github.com/lib/pq",
 			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
@@ -13,6 +43,45 @@
 			"path": "github.com/lib/pq/oid",
 			"revision": "d34b9ff171c21ad295489235aec8b6626023cd04",
 			"revisionTime": "2018-03-27T07:18:24Z"
+		},
+		{
+			"checksumSHA1": "TOhisE9z0Kwsv2+Kfnc3nK/Yg+I=",
+			"path": "github.com/microcosm-cc/bluemonday",
+			"revision": "995366fdf961d03629cd17361bddd32745718e2c",
+			"revisionTime": "2018-03-27T21:19:28Z"
+		},
+		{
+			"path": "github.com/russross/blackfriday",
+			"revision": "2.0.0",
+			"version": "2.0.0"
+		},
+		{
+			"checksumSHA1": "HkNUuhYSk5C2fTMa536jBiORq44=",
+			"path": "github.com/shurcooL/sanitized_anchor_name",
+			"revision": "86672fcb3f950f35f2e675df2240550f2a50762f",
+			"revisionTime": "2017-09-05T02:47:45Z"
+		},
+		{
+			"checksumSHA1": "6WbIuKGVDXQWwDjjEYx4fzLfQO8=",
+			"path": "golang.org/x/net/html",
+			"revision": "2491c5de3490fced2f6cff376127c667efeed857",
+			"revisionTime": "2018-05-11T17:36:03Z"
+		},
+		{
+			"checksumSHA1": "xwhqe/igHQrY3IhqDwzo6j7qpm8=",
+			"path": "golang.org/x/net/html/atom",
+			"revision": "2491c5de3490fced2f6cff376127c667efeed857",
+			"revisionTime": "2018-05-11T17:36:03Z"
+		},
+		{
+			"checksumSHA1": "WrnWl9sC9qr8Ny0wkfKfnuwIxDM=",
+			"path": "gopkg.in/russross/blackfriday.v2",
+			"revision": "cadec560ec52d93835bf2f15bd794700d3a2473b",
+			"revisionTime": "2017-08-06T17:10:14Z"
+		},
+		{
+			"path": "https://github.com/russross/blackfriday/tree/v2",
+			"revision": ""
 		}
 	],
 	"rootPath": "github.com/jjingram/wiki"

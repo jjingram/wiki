@@ -3,12 +3,16 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"io"
+	"io/ioutil"
+	"log"
 	"net/http"
+
+	"github.com/microcosm-cc/bluemonday"
+	"gopkg.in/russross/blackfriday.v2"
 )
 
 type Handler struct {
-	db *sql.DB
+	dal DataAccessLayer
 }
 
 func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -28,9 +32,22 @@ func (h *Handler) doGet(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.RawQuery
 
 	if path != "" {
-		fmt.Fprintf(w, "%s", path)
-	} else {
+		page, err := h.dal.GetPageByTitle(path)
+		if err == sql.ErrNoRows {
+			w.WriteHeader(http.StatusNotFound)
+			fmt.Fprint(w, http.StatusText(http.StatusNotFound))
+		} else if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusInternalServerError)
+			fmt.Fprintf(w, http.StatusText(http.StatusInternalServerError))
+		}
+
+		unsafe := blackfriday.Run(page.Body)
+		html := bluemonday.UGCPolicy().SanitizeBytes(unsafe)
+		fmt.Fprintf(w, string(html))
+	} else if query != "" {
 		fmt.Fprintf(w, "%s", query)
+		return
 	}
 }
 
@@ -38,10 +55,11 @@ func (h *Handler) doPost(w http.ResponseWriter, r *http.Request) {
 	body := r.Body
 	defer body.Close()
 
-	_, err := io.Copy(w, body)
+	input, err := ioutil.ReadAll(body)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "%s", http.StatusText(http.StatusInternalServerError))
 		return
 	}
+	fmt.Fprint(w, input)
 }
